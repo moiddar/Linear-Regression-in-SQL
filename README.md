@@ -36,7 +36,7 @@ $$a = \bar{y} - b \bar{x}$$
 We're going to be using data on crimes in Los Angeles, USA from the USA Government Website. The practical purpose of this analysis is to imagine that we're the head of the Los Angeles Police Department and we need to have an estimate on how many crimes occur per day so we know how much budget to assign to our field services. We're just starting off 2024 and we want to submit a proposal for the 2025 budget. 
 <br>
 <br>
-In our dataset we've got two date columns to work with; the date the crime was reported, and the date the crime occured. Date reported aligns more with the purpose of the analysis because it directly affects how many staff you would need to respond to each report. There are crimes that have longer timescales between occurance and reporting which also makes date reported more relevant. We're also going to foucs only on crimes related to theft to simplify the real world scenario. 
+In our dataset we've got two date columns to work with; the date the crime was reported, and the date the crime occurred. Date reported aligns more with the purpose of the analysis because it directly affects how many staff you would need to respond to each report. There are crimes that have longer timescales between occurrence and reporting which also makes date reported more relevant. We're also going to focus only on crimes related to theft to simplify the real world scenario. 
 <br>
 Once we have the number of crimes per day we need to convert the date into a format that we can use in our equations. For SQLite this is the Julian Day and for Snowflake this is Epoch Seconds. The actual conversion doesn't matter as long as the data remains chronological. 
 <br>
@@ -103,7 +103,7 @@ AND to_date("DATE OCC",'MM/DD/YYYY') < '2024-01-01'
 </tr>
 </table>
 <br>
-SQLite doesn't have a date data type and our dataset has date columns stored as varchar so you have to maniuplate the string to get to a date that can be converted to Julian days. Snowflake on the other hand, has a built in function that can convert strings to dates. Snowflake can also do all conversions, filtering, and aggregation in one query whereas SQLite has to be broken down into common table expressions or subqueries (with CTEs being preferred for readability).  
+SQLite doesn't have a date data type and our dataset has date columns stored as varchar so you have to manipulate the string to get to a date that can be converted to Julian days. Snowflake on the other hand, has a built in function that can convert strings to dates. Snowflake can also do all conversions, filtering, and aggregation in one query whereas SQLite has to be broken down into common table expressions or subqueries (with CTEs being preferred for readability).  
 <br>
 <br>
 <br>
